@@ -1,0 +1,14 @@
+/* WSD — static-export overrides (loaded only by pre-rendered HTML) */
+
+/* FAQ: hide the answer until JS adds .open to the item */
+.faq-item:not(.open) .faq-item__a { display: none !important; }
+
+/* Header dropdown panels are pre-rendered with the closed inline styles.
+   Show them on hover of the parent nav-item wrapper. */
+header nav > div:hover > div[style*="visibility:hidden"],
+header nav > div:hover > div[style*="visibility: hidden"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
+}

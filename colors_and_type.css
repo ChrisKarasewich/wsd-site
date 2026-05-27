@@ -1,0 +1,211 @@
+/* ============================================================
+   WSD — Winnipeg Sewer & Drain
+   Colors + Typography foundations
+   ============================================================ */
+
+/* Display: Bebas Neue (Google Fonts — only family that needs a CDN load) */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* Body: Poppins (Google Fonts for standalone bundle) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  /* ---------- COLOR — BRAND CORE ---------- */
+  --wsd-navy:        #011538;  /* Primary — deep authority */
+  --wsd-blue:        #0062C3;  /* Secondary — action, links, water */
+  --wsd-gray:        #8E8E8E;  /* Accent / muted */
+  --wsd-white:       #FFFFFF;  /* Background */
+  --wsd-ink:         #333333;  /* Text primary */
+
+  /* ---------- COLOR — SAFETY ACCENT ---------- */
+  /* Brief calls for "safety orange OR yellow" — we ship both.
+     Default is amber for emergency/urgent CTAs. */
+  --wsd-amber:       #FFB300;  /* Safety amber — urgent / emergency */
+  --wsd-orange:      #FF6A1A;  /* Safety orange — alt accent */
+
+  /* ---------- COLOR — EXTENDED NAVY / BLUE SCALE ---------- */
+  --wsd-navy-900:    #00102B;
+  --wsd-navy-800:    #011538;  /* = primary */
+  --wsd-navy-700:    #0A2354;
+  --wsd-navy-600:    #103173;
+  --wsd-blue-700:    #004FA0;
+  --wsd-blue-600:    #0062C3;  /* = secondary */
+  --wsd-blue-500:    #2A86E0;
+  --wsd-blue-400:    #5FA8EE;
+  --wsd-blue-100:    #E6F0FB;
+  --wsd-blue-50:     #F4F8FD;
+
+  /* ---------- COLOR — NEUTRAL SCALE ---------- */
+  --wsd-n-50:        #F7F7F8;
+  --wsd-n-100:       #ECECEE;
+  --wsd-n-200:       #D8D9DC;
+  --wsd-n-300:       #BDBEC2;
+  --wsd-n-400:       #8E8E8E;  /* = accent */
+  --wsd-n-500:       #6E6F73;
+  --wsd-n-600:       #4E4F53;
+  --wsd-n-700:       #333333;  /* = text primary */
+  --wsd-n-800:       #1F2024;
+  --wsd-n-900:       #0E0F12;
+
+  /* ---------- COLOR — SEMANTIC ---------- */
+  --wsd-success:     #1F8A4C;
+  --wsd-warning:     #FFB300;
+  --wsd-danger:      #C8281F;
+  --wsd-info:        #0062C3;
+
+  /* ---------- SEMANTIC SURFACE ---------- */
+  --bg:              var(--wsd-white);
+  --bg-alt:          var(--wsd-n-50);
+  --bg-inverse:      var(--wsd-navy);
+  --surface:         var(--wsd-white);
+  --surface-alt:     var(--wsd-blue-50);
+  --border:          var(--wsd-n-200);
+  --border-strong:   var(--wsd-n-300);
+
+  /* ---------- SEMANTIC TEXT ---------- */
+  --fg-1:            var(--wsd-n-700);   /* body */
+  --fg-2:            var(--wsd-n-500);   /* secondary */
+  --fg-3:            var(--wsd-n-400);   /* muted */
+  --fg-display:      var(--wsd-navy);    /* big headings */
+  --fg-on-navy:      var(--wsd-white);
+  --fg-link:         var(--wsd-blue);
+
+  /* ---------- TYPE — FAMILIES ---------- */
+  --font-display:    'Bebas Neue', 'Big Shoulders Display', 'Oswald', 'Impact', system-ui, sans-serif;
+  --font-body:       'Poppins', 'Basier Circle', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono:       'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ---------- TYPE — SIZE SCALE ---------- */
+  /* Brief spec: h1 55px / h2 40px / body 30px (oversized — for hero work).
+     We ship a full scale that includes those, plus normal-density values. */
+  --fs-display-xl:   88px;
+  --fs-display-lg:   72px;
+  --fs-h1:           55px;
+  --fs-h2:           40px;
+  --fs-h3:           32px;
+  --fs-h4:           24px;
+  --fs-h5:           20px;
+  --fs-lead:         30px;   /* "body" per brief — hero / lead paragraphs */
+  --fs-lg:           20px;
+  --fs-md:           16px;   /* default UI body */
+  --fs-sm:           14px;
+  --fs-xs:           12px;
+  --fs-eyebrow:      13px;
+
+  /* ---------- TYPE — WEIGHTS ---------- */
+  --fw-light:        300;
+  --fw-regular:      400;
+  --fw-medium:       500;
+  --fw-semibold:     600;
+  --fw-bold:         700;
+
+  /* ---------- TYPE — LINE / TRACKING ---------- */
+  --lh-tight:        1.05;
+  --lh-snug:         1.2;
+  --lh-normal:       1.5;
+  --lh-relaxed:      1.65;
+  --ls-display:      0.02em;   /* Bebas wants a hair of tracking */
+  --ls-eyebrow:      0.16em;
+  --ls-button:       0.04em;
+
+  /* ---------- SPACING — base 4 per brief ---------- */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  20px;
+  --s-6:  24px;
+  --s-8:  32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+  --s-20: 80px;
+  --s-24: 96px;
+
+  /* ---------- RADIUS — 4px per brief ---------- */
+  --r-xs: 2px;
+  --r-sm: 4px;     /* default */
+  --r-md: 6px;
+  --r-lg: 8px;
+  --r-pill: 999px;
+
+  /* ---------- SHADOWS ---------- */
+  --shadow-xs:  0 1px 2px rgba(1, 21, 56, 0.06);
+  --shadow-sm:  0 2px 6px rgba(1, 21, 56, 0.08);
+  --shadow-md:  0 6px 18px rgba(1, 21, 56, 0.10);
+  --shadow-lg:  0 18px 40px rgba(1, 21, 56, 0.14);
+  --shadow-focus: 0 0 0 3px rgba(0, 98, 195, 0.35);
+
+  /* ---------- MOTION ---------- */
+  --ease-out:    cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:    120ms;
+  --dur-base:    180ms;
+  --dur-slow:    280ms;
+}
+
+/* ============================================================
+   Semantic / element-level styles
+   ============================================================ */
+
+html, body {
+  font-family: var(--font-body);
+  color: var(--fg-1);
+  background: var(--bg);
+  font-size: var(--fs-md);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  color: var(--fg-display);
+  letter-spacing: var(--ls-display);
+  line-height: var(--lh-tight);
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: 400; /* Bebas only ships at 400 */
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+h5 { font-size: var(--fs-h5); letter-spacing: var(--ls-eyebrow); }
+
+p { margin: 0 0 1em; }
+
+.lead {
+  font-family: var(--font-body);
+  font-size: var(--fs-lead);
+  line-height: var(--lh-snug);
+  font-weight: var(--fw-medium);
+  color: var(--wsd-navy);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--wsd-blue);
+  font-weight: 400;
+}
+
+code, pre, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+a {
+  color: var(--fg-link);
+  text-decoration: none;
+  font-weight: var(--fw-medium);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+a:hover { color: var(--wsd-navy); text-decoration: underline; }
+
+::selection { background: var(--wsd-blue); color: #fff; }
