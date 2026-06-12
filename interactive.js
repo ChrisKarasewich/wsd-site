@@ -129,22 +129,44 @@
           a.textContent = item.textContent.trim();
           body.appendChild(a);
         } else {
-          // div wrapper — first <a> is parent label, the rest are children
+          // div wrapper — first <a> is the parent label, the rest are children.
+          // Render as a collapsible dropdown group.
           const links = item.querySelectorAll('a');
           if (!links.length) return;
           const parent = links[0];
-          const a = document.createElement('a');
-          a.className = 'wsd-mobile-nav__link';
-          a.href = parent.getAttribute('href');
-          a.textContent = parent.textContent.trim();
-          body.appendChild(a);
+
+          const group = document.createElement('div');
+          group.className = 'wsd-mobile-nav__group';
+
+          const toggle = document.createElement('button');
+          toggle.type = 'button';
+          toggle.className = 'wsd-mobile-nav__toggle';
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.innerHTML =
+            '<span>' + parent.textContent.trim() + '</span>' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+            'stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+            '<polyline points="6 9 12 15 18 9"></polyline></svg>';
+
+          const sub = document.createElement('div');
+          sub.className = 'wsd-mobile-nav__sub';
+          const inner = document.createElement('div');
+          inner.className = 'wsd-mobile-nav__sub-inner';
           for (let i = 1; i < links.length; i++) {
-            const sub = document.createElement('a');
-            sub.className = 'wsd-mobile-nav__link wsd-mobile-nav__link--sub';
-            sub.href = links[i].getAttribute('href');
-            sub.textContent = links[i].textContent.trim();
-            body.appendChild(sub);
+            const sa = document.createElement('a');
+            sa.href = links[i].getAttribute('href');
+            sa.textContent = links[i].textContent.trim();
+            inner.appendChild(sa);
           }
+          sub.appendChild(inner);
+          group.appendChild(toggle);
+          group.appendChild(sub);
+          body.appendChild(group);
+
+          toggle.addEventListener('click', () => {
+            const isOpen = group.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          });
         }
       });
     }

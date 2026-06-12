@@ -40,14 +40,18 @@ section { position: relative; }
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   gap: 56px;
-  align-items: center;
+  align-items: start;
 }
+/* Top-align text + cap top padding so the H1 sits close to the nav
+   (was vertically centred against a very tall image, leaving a big gap). */
+.hero-grid.container { padding-top: 60px !important; padding-bottom: 88px !important; }
 .hero-image-wrap {
   position: relative;
   justify-self: end;
+  align-self: center;
   width: 100%;
-  max-width: 520px;
-  aspect-ratio: 600 / 900;
+  max-width: 440px;
+  aspect-ratio: 3 / 4;
 }
 .hero-image {
   width: 100%;

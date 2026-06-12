@@ -37,9 +37,26 @@
   [style*="1fr 1.05fr"],
   [style*="1.5fr 1fr"],
   [style*="1fr 1.1fr"],
-  [style*="1.1fr 1fr"] {
+  [style*="1.1fr 1fr"],
+  /* Service-page + contact heros use minmax() two-col grids */
+  [style*="minmax(0, 1.1fr) minmax(0, 1fr)"],
+  [style*="minmax(0,1.1fr) minmax(0,1fr)"],
+  [style*="minmax(0, 1.2fr) minmax(0, 1fr)"],
+  [style*="minmax(0,1.2fr) minmax(0,1fr)"] {
     grid-template-columns: 1fr !important;
     gap: 32px !important;
+  }
+
+  /* Service-page hero photo: it sits below the title once stacked —
+     drop the tall fixed height so it isn't crunched. */
+  .photo-ph[style*="460px"] { height: 340px !important; }
+
+  /* "What we find down there" 3-column rows (#, title, copy) → stack */
+  [style*="120px minmax(0, 1fr) minmax(0, 2fr)"],
+  [style*="120px minmax(0,1fr) minmax(0,2fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+    padding: 24px 22px !important;
   }
 
   /* 4-up grid → 2x2 */
@@ -231,7 +248,13 @@
   .wsd-hamburger { display: inline-flex !important; }
   /* Header height + logo */
   header > .container { height: 76px !important; gap: 14px !important; }
-  header > .container > a > img { height: 56px !important; }
+  header > .container > a { flex-shrink: 0 !important; display: flex !important; align-items: center !important; }
+  header > .container > a > img { height: 54px !important; width: auto !important; max-width: none !important; flex-shrink: 0 !important; }
+  /* "24/7 Emergency Services" → just "Emergency Services" on mobile */
+  .nav-247 { display: none !important; }
+  header > .container > div[style*="margin-left"] > a:first-child {
+    font-size: 13px !important; line-height: 1.15 !important;
+  }
   /* Compact call button on small screens */
   header > .container .btn--amber { padding: 10px 14px !important; font-size: 13px !important; }
 }
@@ -344,3 +367,61 @@
 }
 
 body.wsd-mobile-nav-open { overflow: hidden; }
+
+/* ----- Mobile nav: collapsible dropdown groups ----- */
+.wsd-mobile-nav__body { padding: 4px 12px 24px; }
+
+/* Plain top-level links (Property Managers, Restaurants, Contact) */
+.wsd-mobile-nav a.wsd-mobile-nav__link {
+  padding: 15px 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+}
+
+/* A group = a top-level item that owns a dropdown */
+.wsd-mobile-nav__group { border-bottom: 1px solid var(--border); }
+.wsd-mobile-nav__toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 12px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--wsd-navy);
+  text-align: left;
+}
+.wsd-mobile-nav__toggle svg {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  color: var(--wsd-blue);
+  transition: transform 240ms var(--ease-out);
+}
+.wsd-mobile-nav__group.open .wsd-mobile-nav__toggle svg { transform: rotate(180deg); }
+
+/* Collapsible region via grid-rows 0fr → 1fr (animatable, no JS height math) */
+.wsd-mobile-nav__sub {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 260ms var(--ease-out);
+}
+.wsd-mobile-nav__group.open .wsd-mobile-nav__sub { grid-template-rows: 1fr; }
+.wsd-mobile-nav__sub-inner { overflow: hidden; }
+.wsd-mobile-nav__sub a {
+  display: block;
+  padding: 11px 12px 11px 22px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--fg-1);
+  text-decoration: none;
+  border-radius: var(--r-sm);
+}
+.wsd-mobile-nav__sub a:last-child { margin-bottom: 8px; }
+.wsd-mobile-nav__sub a:hover { background: var(--wsd-blue-50); color: var(--wsd-blue); }
