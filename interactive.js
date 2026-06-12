@@ -28,26 +28,20 @@
     });
   });
 
-  // --- Booking form: simulate submit & show thank-you state ---------------
+  // --- Booking form: on submit, redirect to the thank-you page ------------
+  // Every booking form on the site is a `form.card`. After a valid submit we
+  // send the visitor to thank-you.html, which is the shared confirmation page.
   document.querySelectorAll('form.card').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const phone = (form.querySelector('input[type="tel"]') || {}).value || '';
-      form.outerHTML =
-        '<div class="card" style="padding:40px 36px;background:var(--wsd-blue-50);' +
-        'border-color:var(--wsd-blue-100);border-left:4px solid var(--wsd-blue);text-align:left;">' +
-        '<div style="width:48px;height:48px;border-radius:50%;background:var(--wsd-blue);color:white;' +
-          'display:flex;align-items:center;justify-content:center;margin-bottom:18px;">' +
-          '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
-          'stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' +
-        '</div>' +
-        '<h3 style="font-size:32px;color:var(--wsd-navy);margin-bottom:12px;">Request received.</h3>' +
-        '<p style="font-size:16px;color:var(--fg-1);line-height:1.5;margin-bottom:20px;max-width:46ch;">' +
-          "We'll call you within 15 minutes to confirm the appointment. " +
-          'If it&rsquo;s an active backup, call ' +
-          '<a href="tel:+12045550123" style="font-weight:700;">(204) 555-0123</a> instead &mdash; ' +
-          'we hold same-day slots for emergencies.' +
-        '</p></div>';
+      // Disable the submit button so a double-click can't fire twice.
+      const submitBtn = form.querySelector('button[type="submit"], button:not([type])');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.65';
+        submitBtn.style.pointerEvents = 'none';
+      }
+      window.location.href = 'thank-you.html';
     });
   });
 
@@ -72,5 +66,105 @@
       });
     }
   }
+
+  // --- Mobile navigation drawer (injected on small screens) --------------
+  (function setupMobileNav() {
+    const headerEl = document.querySelector('header');
+    if (!headerEl) return;
+    const containerEl = headerEl.querySelector(':scope > .container');
+    if (!containerEl) return;
+
+    // Build the hamburger button and append to the header.
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'wsd-hamburger';
+    btn.setAttribute('aria-label', 'Open menu');
+    btn.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" ' +
+      'stroke-linecap="round" stroke-linejoin="round">' +
+      '<line x1="3" y1="6" x2="21" y2="6"/>' +
+      '<line x1="3" y1="12" x2="21" y2="12"/>' +
+      '<line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    containerEl.appendChild(btn);
+
+    // Build the drawer from the existing nav links.
+    const drawer = document.createElement('div');
+    drawer.className = 'wsd-mobile-nav';
+    drawer.innerHTML =
+      '<div class="wsd-mobile-nav__panel" role="dialog" aria-label="Site navigation">' +
+        '<div class="wsd-mobile-nav__head">' +
+          '<a href="index.html"><img src="assets/wsd-logo-primary.png" alt="Winnipeg Sewer and Drain"/></a>' +
+          '<button type="button" class="wsd-mobile-nav__close" aria-label="Close menu">' +
+            '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" ' +
+            'stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">' +
+            '<line x1="18" y1="6" x2="6" y2="18"/>' +
+            '<line x1="6" y1="6" x2="18" y2="18"/></svg>' +
+          '</button>' +
+        '</div>' +
+        '<div class="wsd-mobile-nav__body"></div>' +
+        '<div class="wsd-mobile-nav__foot">' +
+          '<a class="btn btn--amber btn--md" href="tel:+12047864060">' +
+            '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" ' +
+            'stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">' +
+            '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 ' +
+            '19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.66 2.62a2 ' +
+            '2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6 6l1.46-1.32a2 2 0 0 1 2.11-.45c.84.32 1.72.54 2.62.66A2 ' +
+            '2 0 0 1 22 16.92z"/></svg>' +
+            ' Call (204) 786-4060</a>' +
+          '<small>24/7 emergency line · Same-day across Winnipeg</small>' +
+        '</div>' +
+      '</div>';
+
+    // Populate the body with the same links the desktop nav uses.
+    const body = drawer.querySelector('.wsd-mobile-nav__body');
+    const navEl = containerEl.querySelector(':scope > nav');
+    if (navEl) {
+      // Each child of the nav is either an <a> (no children) or a <div> wrapper
+      // containing a top-level <a> + a dropdown panel of <a>s.
+      navEl.querySelectorAll(':scope > a, :scope > div').forEach(item => {
+        if (item.tagName === 'A') {
+          const a = document.createElement('a');
+          a.className = 'wsd-mobile-nav__link';
+          a.href = item.getAttribute('href');
+          a.textContent = item.textContent.trim();
+          body.appendChild(a);
+        } else {
+          // div wrapper — first <a> is parent label, the rest are children
+          const links = item.querySelectorAll('a');
+          if (!links.length) return;
+          const parent = links[0];
+          const a = document.createElement('a');
+          a.className = 'wsd-mobile-nav__link';
+          a.href = parent.getAttribute('href');
+          a.textContent = parent.textContent.trim();
+          body.appendChild(a);
+          for (let i = 1; i < links.length; i++) {
+            const sub = document.createElement('a');
+            sub.className = 'wsd-mobile-nav__link wsd-mobile-nav__link--sub';
+            sub.href = links[i].getAttribute('href');
+            sub.textContent = links[i].textContent.trim();
+            body.appendChild(sub);
+          }
+        }
+      });
+    }
+
+    document.body.appendChild(drawer);
+
+    const open  = () => { drawer.classList.add('open');    document.body.classList.add('wsd-mobile-nav-open'); };
+    const close = () => { drawer.classList.remove('open'); document.body.classList.remove('wsd-mobile-nav-open'); };
+
+    btn.addEventListener('click', open);
+    drawer.addEventListener('click', (e) => {
+      if (e.target === drawer) close();
+    });
+    drawer.querySelector('.wsd-mobile-nav__close').addEventListener('click', close);
+    drawer.querySelectorAll('.wsd-mobile-nav__body a').forEach(a => {
+      a.addEventListener('click', close);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+  })();
 
 })();
