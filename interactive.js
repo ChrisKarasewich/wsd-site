@@ -34,7 +34,7 @@
   //
   // Paste your deployed web-app URL below (it ends in /exec). Until a real URL is
   // in place the form fails safely and tells the visitor to call instead.
-  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyUastqyBanNXt1T6Srwr3oJtR2XgVsB1kH9tWlJ1xVgH00dfn0PntTwKHy2q3YkXgK/exec';
+  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzE1kQ9sX_HXo8T48Qx7qytzLrkXfGVyIMGPnnbizgb6xbvgYRL-Q7wEtqmMJnmkwoB/exec';
 
   document.querySelectorAll('form.card').forEach(form => {
     form.addEventListener('submit', async (e) => {
