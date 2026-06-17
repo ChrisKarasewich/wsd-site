@@ -36,6 +36,46 @@
   // in place the form fails safely and tells the visitor to call instead.
   const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzE1kQ9sX_HXo8T48Qx7qytzLrkXfGVyIMGPnnbizgb6xbvgYRL-Q7wEtqmMJnmkwoB/exec';
 
+  // --- reCAPTCHA v3 (invisible) -------------------------------------------
+  // Public site key — safe to expose. The matching SECRET key lives only in the
+  // Apps Script (Code.gs) and verifies each token server-side before a lead is
+  // saved/emailed. If you ever rotate keys, update both places.
+  const RECAPTCHA_SITE_KEY = '6LdGziQtAAAAAJGGeOC6t1VWbomcQas-j1Z2Ll0D';
+
+  // Load the reCAPTCHA v3 library once, on any page that has a booking form.
+  if (RECAPTCHA_SITE_KEY && document.querySelector('form.card') &&
+      !document.querySelector('script[data-recaptcha]')) {
+    const rc = document.createElement('script');
+    rc.src = 'https://www.google.com/recaptcha/api.js?render=' + RECAPTCHA_SITE_KEY;
+    rc.async = true; rc.defer = true;
+    rc.setAttribute('data-recaptcha', '');
+    document.head.appendChild(rc);
+  }
+
+  // Resolve a fresh v3 token. Waits briefly for the library if it's still loading,
+  // and resolves to '' if reCAPTCHA never becomes available (the server then decides).
+  function getRecaptchaToken() {
+    return new Promise(resolve => {
+      if (!RECAPTCHA_SITE_KEY) { resolve(''); return; }
+      let waited = 0;
+      const tryExec = () => {
+        if (typeof grecaptcha !== 'undefined' && grecaptcha.execute) {
+          grecaptcha.ready(() => {
+            grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' })
+              .then(token => resolve(token || ''))
+              .catch(() => resolve(''));
+          });
+        } else if (waited < 5000) {
+          waited += 200;
+          setTimeout(tryExec, 200);
+        } else {
+          resolve('');
+        }
+      };
+      tryExec();
+    });
+  }
+
   document.querySelectorAll('form.card').forEach(form => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -54,6 +94,12 @@
       }
 
       try {
+        // Get a reCAPTCHA v3 token and attach it to the submission so the
+        // Apps Script can verify the visitor server-side.
+        const token = await getRecaptchaToken();
+        const payload = new FormData(form);
+        if (token) payload.append('g-recaptcha-response', token);
+
         // Apps Script web apps don't return CORS headers, so we POST with
         // mode:'no-cors'. The request still reaches the server (row is written and
         // the email is sent); we just can't read the response, so a completed
@@ -61,7 +107,7 @@
         await fetch(FORM_ENDPOINT, {
           method: 'POST',
           mode: 'no-cors',
-          body: new FormData(form)
+          body: payload
         });
         window.location.href = 'thank-you.html';
       } catch (err) {
