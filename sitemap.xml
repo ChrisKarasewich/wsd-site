@@ -8,10 +8,23 @@
   <url><loc>https://winnipegsd.com/hydro-jetting</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://winnipegsd.com/sewer-camera-inspection</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://winnipegsd.com/frozen-sewer-thawing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://winnipegsd.com/emergency-service</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://winnipegsd.com/property-managers</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://winnipegsd.com/restaurants</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://winnipegsd.com/service-area</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://winnipegsd.com/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://winnipegsd.com/reviews</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://winnipegsd.com/faq</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://winnipegsd.com/recent-updates</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://winnipegsd.com/blog/basement-backup-first-10-minutes</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://winnipegsd.com/blog/flat-quotes-vs-hourly</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://winnipegsd.com/blog/wolseley-clay-tile</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://winnipegsd.com/blog-basement-backup-first-10-minutes</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://winnipegsd.com/blog-clay-tile-sewers-winnipeg</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://winnipegsd.com/blog-flat-quotes-vs-hourly</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://winnipegsd.com/blog-frozen-sewer-line-winnipeg</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://winnipegsd.com/blog-sewer-camera-inspection</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://winnipegsd.com/blog-sewer-line-repair-cost-winnipeg</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://winnipegsd.com/blog-tree-roots-in-sewer-line</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://winnipegsd.com/blog-why-does-my-drain-keep-clogging</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://winnipegsd.com/blog-wolseley-clay-tile</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://winnipegsd.com/privacy-policy</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+  <url><loc>https://winnipegsd.com/terms-of-service</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
 </urlset>

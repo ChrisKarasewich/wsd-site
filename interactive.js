@@ -28,20 +28,47 @@
     });
   });
 
-  // --- Booking form: on submit, redirect to the thank-you page ------------
-  // Every booking form on the site is a `form.card`. After a valid submit we
-  // send the visitor to thank-you.html, which is the shared confirmation page.
+  // --- Booking form: send to Google Apps Script (sheet + email), then redirect
+  // The Apps Script web app appends the submission to the Google Sheet AND emails
+  // info@winnipegsd.com. See SETUP-form.md for how to deploy it and get this URL.
+  //
+  // Paste your deployed web-app URL below (it ends in /exec). Until a real URL is
+  // in place the form fails safely and tells the visitor to call instead.
+  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyUastqyBanNXt1T6Srwr3oJtR2XgVsB1kH9tWlJ1xVgH00dfn0PntTwKHy2q3YkXgK/exec';
+
   document.querySelectorAll('form.card').forEach(form => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      // Disable the submit button so a double-click can't fire twice.
       const submitBtn = form.querySelector('button[type="submit"], button:not([type])');
+      const restore = () => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '';
+          submitBtn.style.pointerEvents = '';
+        }
+      };
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.style.opacity = '0.65';
         submitBtn.style.pointerEvents = 'none';
       }
-      window.location.href = 'thank-you.html';
+
+      try {
+        // Apps Script web apps don't return CORS headers, so we POST with
+        // mode:'no-cors'. The request still reaches the server (row is written and
+        // the email is sent); we just can't read the response, so a completed
+        // request is treated as success.
+        await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: new FormData(form)
+        });
+        window.location.href = 'thank-you.html';
+      } catch (err) {
+        restore();
+        alert("Sorry — we couldn't send your request just now. " +
+              "Please call us at (204) 786-4060 and we'll get you booked right away.");
+      }
     });
   });
 
