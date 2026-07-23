@@ -36,43 +36,74 @@
   // in place the form fails safely and tells the visitor to call instead.
   const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzE1kQ9sX_HXo8T48Qx7qytzLrkXfGVyIMGPnnbizgb6xbvgYRL-Q7wEtqmMJnmkwoB/exec';
 
-  // --- reCAPTCHA v3 (invisible) -------------------------------------------
+  // --- Cloudflare Turnstile (bot protection) ------------------------------
   // Public site key — safe to expose. The matching SECRET key lives only in the
   // Apps Script (Code.gs) and verifies each token server-side before a lead is
   // saved/emailed. If you ever rotate keys, update both places.
-  const RECAPTCHA_SITE_KEY = '6LdGziQtAAAAAJGGeOC6t1VWbomcQas-j1Z2Ll0D';
+  const TURNSTILE_SITE_KEY = '0x4AAAAAAD8LlOyk7H_Q-lWc';
 
-  // Load the reCAPTCHA v3 library once, on any page that has a booking form.
-  if (RECAPTCHA_SITE_KEY && document.querySelector('form.card') &&
-      !document.querySelector('script[data-recaptcha]')) {
-    const rc = document.createElement('script');
-    rc.src = 'https://www.google.com/recaptcha/api.js?render=' + RECAPTCHA_SITE_KEY;
-    rc.async = true; rc.defer = true;
-    rc.setAttribute('data-recaptcha', '');
-    document.head.appendChild(rc);
+  // Track each form's rendered widget so we can read/reset its token later.
+  const turnstileWidgets = new WeakMap();
+
+  // On any page with a booking form, drop a Turnstile widget into every form and
+  // load the library once (explicit render so we control placement + token).
+  if (TURNSTILE_SITE_KEY && document.querySelector('form.card')) {
+    document.querySelectorAll('form.card').forEach(form => {
+      if (form.querySelector('.cf-turnstile')) return;
+      const box = document.createElement('div');
+      box.className = 'cf-turnstile';
+      box.style.margin = '0 0 16px';
+      const submitBtn = form.querySelector('button[type="submit"], button:not([type])');
+      if (submitBtn && submitBtn.parentNode) {
+        submitBtn.parentNode.insertBefore(box, submitBtn);
+      } else {
+        form.appendChild(box);
+      }
+    });
+
+    // Called by the Turnstile script once it loads (?onload=... below).
+    window.__wsdRenderTurnstile = function () {
+      if (typeof turnstile === 'undefined') return;
+      document.querySelectorAll('form.card .cf-turnstile').forEach(box => {
+        if (box.dataset.rendered) return;
+        const id = turnstile.render(box, { sitekey: TURNSTILE_SITE_KEY });
+        box.dataset.rendered = '1';
+        const form = box.closest('form.card');
+        if (form) turnstileWidgets.set(form, id);
+      });
+    };
+
+    if (!document.querySelector('script[data-turnstile]')) {
+      const ts = document.createElement('script');
+      ts.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js' +
+               '?onload=__wsdRenderTurnstile&render=explicit';
+      ts.async = true; ts.defer = true;
+      ts.setAttribute('data-turnstile', '');
+      document.head.appendChild(ts);
+    }
   }
 
-  // Resolve a fresh v3 token. Waits briefly for the library if it's still loading,
-  // and resolves to '' if reCAPTCHA never becomes available (the server then decides).
-  function getRecaptchaToken() {
+  // Resolve this form's Turnstile token. Waits briefly for the widget to solve,
+  // and resolves to '' if Turnstile never becomes available (the server then decides).
+  function getTurnstileToken(form) {
     return new Promise(resolve => {
-      if (!RECAPTCHA_SITE_KEY) { resolve(''); return; }
+      if (!TURNSTILE_SITE_KEY || typeof turnstile === 'undefined') { resolve(''); return; }
+      const id = turnstileWidgets.get(form);
       let waited = 0;
-      const tryExec = () => {
-        if (typeof grecaptcha !== 'undefined' && grecaptcha.execute) {
-          grecaptcha.ready(() => {
-            grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' })
-              .then(token => resolve(token || ''))
-              .catch(() => resolve(''));
-          });
-        } else if (waited < 5000) {
+      const tryGet = () => {
+        let token = '';
+        try { token = (id != null) ? turnstile.getResponse(id) : turnstile.getResponse(); }
+        catch (e) { token = ''; }
+        if (token) {
+          resolve(token);
+        } else if (waited < 8000) {
           waited += 200;
-          setTimeout(tryExec, 200);
+          setTimeout(tryGet, 200);
         } else {
           resolve('');
         }
       };
-      tryExec();
+      tryGet();
     });
   }
 
@@ -86,6 +117,11 @@
           submitBtn.style.opacity = '';
           submitBtn.style.pointerEvents = '';
         }
+        // Reset the widget so a fresh token can be issued on the next attempt.
+        try {
+          const id = turnstileWidgets.get(form);
+          if (typeof turnstile !== 'undefined' && id != null) turnstile.reset(id);
+        } catch (e) { /* no-op */ }
       };
       if (submitBtn) {
         submitBtn.disabled = true;
@@ -94,11 +130,11 @@
       }
 
       try {
-        // Get a reCAPTCHA v3 token and attach it to the submission so the
+        // Get a Turnstile token and attach it to the submission so the
         // Apps Script can verify the visitor server-side.
-        const token = await getRecaptchaToken();
+        const token = await getTurnstileToken(form);
         const payload = new FormData(form);
-        if (token) payload.append('g-recaptcha-response', token);
+        if (token) payload.set('cf-turnstile-response', token);
 
         // Apps Script web apps don't return CORS headers, so we POST with
         // mode:'no-cors'. The request still reaches the server (row is written and
