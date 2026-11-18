@@ -45,7 +45,7 @@
   //
   // Paste your deployed web-app URL below (it ends in /exec). Until a real URL is
   // in place the form fails safely and tells the visitor to call instead.
-  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzE1kQ9sX_HXo8T48Qx7qytzLrkXfGVyIMGPnnbizgb6xbvgYRL-Q7wEtqmMJnmkwoB/exec';
+  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzmRu5nn3GvvJMGl1q8GA3MzwoqBwPJGyDkBzHd-2WfsnFgRo6RerTHWwOC_ptTd6T7/exec'; // runs as platforms@adeasy.com
 
   // --- Cloudflare Turnstile (bot protection) ------------------------------
   // Public site key — safe to expose. The matching SECRET key lives only in the
@@ -118,6 +118,17 @@
     });
   }
 
+  // Honeypot: a hidden "website" field real visitors never see or fill. Bots that
+  // fill it get a fake success from the Apps Script and nothing is saved.
+  document.querySelectorAll('form.card').forEach(form => {
+    if (form.querySelector('input[name="website"]')) return;
+    const hp = document.createElement('div');
+    hp.setAttribute('aria-hidden', 'true');
+    hp.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden';
+    hp.innerHTML = '<label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>';
+    form.appendChild(hp);
+  });
+
   document.querySelectorAll('form.card').forEach(form => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -147,15 +158,14 @@
         const payload = new FormData(form);
         if (token) payload.set('cf-turnstile-response', token);
 
-        // Apps Script web apps don't return CORS headers, so we POST with
-        // mode:'no-cors'. The request still reaches the server (row is written and
-        // the email is sent); we just can't read the response, so a completed
-        // request is treated as success.
-        await fetch(FORM_ENDPOINT, {
-          method: 'POST',
-          mode: 'no-cors',
-          body: payload
-        });
+        // The Apps Script replies {"ok":true} once the row is saved and the email sent,
+        // or {"ok":false,"error":"..."} if it wasn't. Only a real "ok" goes to the
+        // thank-you page; anything else shows the "please call us" message.
+        const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: payload });
+        const reply = await res.json();
+        if (!reply || reply.ok !== true) throw new Error((reply && reply.error) || 'not saved');
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'generate_lead', form_name: 'booking' });
         window.location.href = '/thank-you';
       } catch (err) {
         restore();
