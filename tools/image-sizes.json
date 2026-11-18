@@ -1,0 +1,944 @@
+{
+"about|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"about|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 4568,
+"top_m": 8527
+},
+"about|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"about|assets/wsd-van.jpg|0": {
+"d": 536,
+"m": 376,
+"top_d": 368,
+"top_m": 730
+},
+"blog-basement-backup-first-10-minutes|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 0,
+"top_d": 10,
+"top_m": 10
+},
+"blog-basement-backup-first-10-minutes|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 89,
+"top_d": 4792,
+"top_m": 6746
+},
+"blog-basement-backup-first-10-minutes|assets/wsd-logo-primary.png|2": {
+"d": 512,
+"m": 412,
+"top_d": 5192,
+"top_m": 7556
+},
+"blog-clay-tile-sewers-winnipeg|assets/camera-monitor.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 5510,
+"top_m": 6616
+},
+"blog-clay-tile-sewers-winnipeg|assets/clay-tile-hero.jpg|0": {
+"d": 934,
+"m": 374,
+"top_d": 752,
+"top_m": 757
+},
+"blog-clay-tile-sewers-winnipeg|assets/clogged-sink.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 5510,
+"top_m": 6616
+},
+"blog-clay-tile-sewers-winnipeg|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"blog-clay-tile-sewers-winnipeg|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 6137,
+"top_m": 7669
+},
+"blog-clay-tile-sewers-winnipeg|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"blog-flat-quotes-vs-hourly|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 0,
+"top_d": 10,
+"top_m": 10
+},
+"blog-flat-quotes-vs-hourly|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 89,
+"top_d": 5007,
+"top_m": 7146
+},
+"blog-flat-quotes-vs-hourly|assets/wsd-logo-primary.png|2": {
+"d": 512,
+"m": 412,
+"top_d": 5407,
+"top_m": 7956
+},
+"blog-frozen-sewer-line-winnipeg|assets/camera-monitor.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 5227,
+"top_m": 6330
+},
+"blog-frozen-sewer-line-winnipeg|assets/clogged-sink.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 5227,
+"top_m": 6330
+},
+"blog-frozen-sewer-line-winnipeg|assets/frozen-sewer-hero.jpg|0": {
+"d": 934,
+"m": 374,
+"top_d": 752,
+"top_m": 706
+},
+"blog-frozen-sewer-line-winnipeg|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"blog-frozen-sewer-line-winnipeg|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 5854,
+"top_m": 7383
+},
+"blog-frozen-sewer-line-winnipeg|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"blog-sewer-camera-inspection|assets/camera-monitor.jpg|0": {
+"d": 934,
+"m": 374,
+"top_d": 752,
+"top_m": 731
+},
+"blog-sewer-camera-inspection|assets/clogged-sink.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 5636,
+"top_m": 6668
+},
+"blog-sewer-camera-inspection|assets/drain-cleaning-hero.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 5636,
+"top_m": 6668
+},
+"blog-sewer-camera-inspection|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"blog-sewer-camera-inspection|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 6263,
+"top_m": 7765
+},
+"blog-sewer-camera-inspection|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"blog-sewer-line-repair-cost-winnipeg|assets/camera-monitor.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 5293,
+"top_m": 6271
+},
+"blog-sewer-line-repair-cost-winnipeg|assets/clogged-sink.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 5293,
+"top_m": 6271
+},
+"blog-sewer-line-repair-cost-winnipeg|assets/sewer-line-repair-trench.jpg|0": {
+"d": 934,
+"m": 374,
+"top_d": 752,
+"top_m": 693
+},
+"blog-sewer-line-repair-cost-winnipeg|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"blog-sewer-line-repair-cost-winnipeg|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 5920,
+"top_m": 7324
+},
+"blog-sewer-line-repair-cost-winnipeg|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"blog-tree-roots-in-sewer-line|assets/camera-monitor.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 5441,
+"top_m": 6263
+},
+"blog-tree-roots-in-sewer-line|assets/clogged-sink.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 5441,
+"top_m": 6263
+},
+"blog-tree-roots-in-sewer-line|assets/drain-cleaning-hero.jpg|0": {
+"d": 934,
+"m": 374,
+"top_d": 752,
+"top_m": 693
+},
+"blog-tree-roots-in-sewer-line|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"blog-tree-roots-in-sewer-line|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 6068,
+"top_m": 7316
+},
+"blog-tree-roots-in-sewer-line|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"blog-why-does-my-drain-keep-clogging|assets/camera-monitor.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 5395,
+"top_m": 6365
+},
+"blog-why-does-my-drain-keep-clogging|assets/clogged-sink.jpg|0": {
+"d": 934,
+"m": 374,
+"top_d": 816,
+"top_m": 731
+},
+"blog-why-does-my-drain-keep-clogging|assets/drain-cleaning-hero.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 5395,
+"top_m": 6365
+},
+"blog-why-does-my-drain-keep-clogging|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"blog-why-does-my-drain-keep-clogging|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 5995,
+"top_m": 7462
+},
+"blog-why-does-my-drain-keep-clogging|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"blog-wolseley-clay-tile|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 0,
+"top_d": 10,
+"top_m": 10
+},
+"blog-wolseley-clay-tile|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 89,
+"top_d": 4430,
+"top_m": 6377
+},
+"blog-wolseley-clay-tile|assets/wsd-logo-primary.png|2": {
+"d": 512,
+"m": 412,
+"top_d": 4830,
+"top_m": 7187
+},
+"contact|assets/winnipeg-neighbourhood-map.png|0": {
+"d": 525,
+"m": 374,
+"top_d": 1212,
+"top_m": 2633
+},
+"contact|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"contact|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 2016,
+"top_m": 3364
+},
+"contact|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"drain-cleaning|assets/camera-in-line.jpg|0": {
+"d": 387,
+"m": 374,
+"top_d": 1638,
+"top_m": 2930
+},
+"drain-cleaning|assets/camera-monitor.jpg|0": {
+"d": 527,
+"m": 376,
+"top_d": 3659,
+"top_m": 5647
+},
+"drain-cleaning|assets/drain-cleaning-hero.jpg|0": {
+"d": 552,
+"m": 376,
+"top_d": 324,
+"top_m": 913
+},
+"drain-cleaning|assets/drain-cleaning-hero.jpg|1": {
+"d": 387,
+"m": 374,
+"top_d": 1638,
+"top_m": 2093
+},
+"drain-cleaning|assets/hydro-jet.jpg|0": {
+"d": 387,
+"m": 374,
+"top_d": 1638,
+"top_m": 2511
+},
+"drain-cleaning|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"drain-cleaning|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 5825,
+"top_m": 8408
+},
+"drain-cleaning|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"emergency-service|assets/clogged-sink.jpg|0": {
+"d": 486,
+"m": 54,
+"top_d": 264,
+"top_m": 315
+},
+"emergency-service|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"emergency-service|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 4140,
+"top_m": 6485
+},
+"emergency-service|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"faq|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"faq|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 7889,
+"top_m": 9817
+},
+"faq|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"frozen-sewer-thawing|assets/hydro-jet.jpg|0": {
+"d": 552,
+"m": 376,
+"top_d": 339,
+"top_m": 785
+},
+"frozen-sewer-thawing|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"frozen-sewer-thawing|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 6935,
+"top_m": 10540
+},
+"frozen-sewer-thawing|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"hydro-jetting|assets/camera-in-line.jpg|0": {
+"d": 387,
+"m": 374,
+"top_d": 2695,
+"top_m": 3479
+},
+"hydro-jetting|assets/camera-monitor.jpg|0": {
+"d": 527,
+"m": 376,
+"top_d": 4574,
+"top_m": 7917
+},
+"hydro-jetting|assets/drain-cleaning-hero.jpg|0": {
+"d": 387,
+"m": 374,
+"top_d": 2695,
+"top_m": 3894
+},
+"hydro-jetting|assets/hydro-jet.jpg|0": {
+"d": 552,
+"m": 376,
+"top_d": 339,
+"top_m": 844
+},
+"hydro-jetting|assets/hydro-jet.jpg|1": {
+"d": 387,
+"m": 374,
+"top_d": 2695,
+"top_m": 3086
+},
+"hydro-jetting|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"hydro-jetting|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 7574,
+"top_m": 11889
+},
+"hydro-jetting|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"index|assets/camera-monitor.jpg|0": {
+"d": 384,
+"m": 371,
+"top_d": 1909,
+"top_m": 3524
+},
+"index|assets/camera-monitor.jpg|1": {
+"d": 387,
+"m": 374,
+"top_d": 6616,
+"top_m": 9991
+},
+"index|assets/clogged-sink.jpg|0": {
+"d": 384,
+"m": 371,
+"top_d": 1909,
+"top_m": 2404
+},
+"index|assets/clogged-sink.jpg|1": {
+"d": 387,
+"m": 374,
+"top_d": 6616,
+"top_m": 10533
+},
+"index|assets/drain-cleaning-hero.jpg|0": {
+"d": 384,
+"m": 371,
+"top_d": 1909,
+"top_m": 2965
+},
+"index|assets/drain-cleaning-hero.jpg|1": {
+"d": 387,
+"m": 374,
+"top_d": 6616,
+"top_m": 11074
+},
+"index|assets/hero-image.jpg|0": {
+"d": 440,
+"m": 260,
+"top_d": 207,
+"top_m": 580
+},
+"index|assets/winnipeg-neighbourhood-map.png|0": {
+"d": 525,
+"m": 374,
+"top_d": 4708,
+"top_m": 7703
+},
+"index|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"index|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 8226,
+"top_m": 13201
+},
+"index|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"privacy-policy|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"privacy-policy|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 4684,
+"top_m": 6733
+},
+"privacy-policy|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"property-managers|assets/property-manager-hero.jpg|0": {
+"d": 552,
+"m": 376,
+"top_d": 354,
+"top_m": 870
+},
+"property-managers|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"property-managers|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 8111,
+"top_m": 12419
+},
+"property-managers|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"recent-updates|assets/camera-monitor.jpg|0": {
+"d": 565,
+"m": 374,
+"top_d": 937,
+"top_m": 1871
+},
+"recent-updates|assets/clay-tile-hero.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 1993,
+"top_m": 3301
+},
+"recent-updates|assets/clay-tile-hero.jpg|1": {
+"d": 594,
+"m": 174,
+"top_d": 2469,
+"top_m": 4251
+},
+"recent-updates|assets/clogged-sink.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 1491,
+"top_m": 2281
+},
+"recent-updates|assets/drain-cleaning-hero.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 1491,
+"top_m": 2281
+},
+"recent-updates|assets/frozen-sewer-hero.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 2469,
+"top_m": 4251
+},
+"recent-updates|assets/hero-image.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 2972,
+"top_m": 5244
+},
+"recent-updates|assets/sewer-line-repair-trench.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 1993,
+"top_m": 3301
+},
+"recent-updates|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"recent-updates|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 3892,
+"top_m": 6574
+},
+"recent-updates|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"recent-updates|assets/wsd-van.jpg|0": {
+"d": 594,
+"m": 174,
+"top_d": 2972,
+"top_m": 5244
+},
+"restaurants|assets/restaurant-hero.jpg|0": {
+"d": 552,
+"m": 376,
+"top_d": 324,
+"top_m": 895
+},
+"restaurants|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"restaurants|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 8111,
+"top_m": 12065
+},
+"restaurants|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"reviews|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"reviews|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 5493,
+"top_m": 13996
+},
+"reviews|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"service-area|assets/winnipeg-neighbourhood-map.png|0": {
+"d": 578,
+"m": 374,
+"top_d": 739,
+"top_m": 1263
+},
+"service-area|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"service-area|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 5669,
+"top_m": 9540
+},
+"service-area|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"services|assets/camera-monitor.jpg|0": {
+"d": 384,
+"m": 371,
+"top_d": 1212,
+"top_m": 2222
+},
+"services|assets/clogged-sink.jpg|0": {
+"d": 384,
+"m": 371,
+"top_d": 1706,
+"top_m": 4202
+},
+"services|assets/drain-cleaning-hero.jpg|0": {
+"d": 384,
+"m": 371,
+"top_d": 740,
+"top_m": 771
+},
+"services|assets/frozen-sewer-hero.jpg|0": {
+"d": 384,
+"m": 371,
+"top_d": 1212,
+"top_m": 2712
+},
+"services|assets/hydro-jet.jpg|0": {
+"d": 384,
+"m": 371,
+"top_d": 740,
+"top_m": 1730
+},
+"services|assets/property-manager-hero.jpg|0": {
+"d": 384,
+"m": 371,
+"top_d": 1212,
+"top_m": 3201
+},
+"services|assets/restaurant-hero.jpg|0": {
+"d": 384,
+"m": 371,
+"top_d": 1706,
+"top_m": 3712
+},
+"services|assets/sewer-line-repair-trench.jpg|0": {
+"d": 384,
+"m": 371,
+"top_d": 740,
+"top_m": 1263
+},
+"services|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"services|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 3906,
+"top_m": 6539
+},
+"services|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"sewer-camera-inspection|assets/camera-in-line.jpg|0": {
+"d": 387,
+"m": 374,
+"top_d": 2720,
+"top_m": 3235
+},
+"sewer-camera-inspection|assets/camera-in-line.jpg|1": {
+"d": 527,
+"m": 376,
+"top_d": 4738,
+"top_m": 8394
+},
+"sewer-camera-inspection|assets/camera-monitor.jpg|0": {
+"d": 552,
+"m": 376,
+"top_d": 283,
+"top_m": 794
+},
+"sewer-camera-inspection|assets/camera-monitor.jpg|1": {
+"d": 387,
+"m": 374,
+"top_d": 2720,
+"top_m": 4065
+},
+"sewer-camera-inspection|assets/drain-cleaning-hero.jpg|0": {
+"d": 387,
+"m": 374,
+"top_d": 2720,
+"top_m": 3650
+},
+"sewer-camera-inspection|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"sewer-camera-inspection|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 7800,
+"top_m": 12403
+},
+"sewer-camera-inspection|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"sewer-line-cleaning|assets/camera-in-line.jpg|0": {
+"d": 552,
+"m": 376,
+"top_d": 324,
+"top_m": 913
+},
+"sewer-line-cleaning|assets/camera-in-line.jpg|1": {
+"d": 387,
+"m": 374,
+"top_d": 2533,
+"top_m": 3862
+},
+"sewer-line-cleaning|assets/camera-monitor.jpg|0": {
+"d": 527,
+"m": 376,
+"top_d": 4626,
+"top_m": 6752
+},
+"sewer-line-cleaning|assets/drain-cleaning-hero.jpg|0": {
+"d": 387,
+"m": 374,
+"top_d": 2533,
+"top_m": 2981
+},
+"sewer-line-cleaning|assets/hydro-jet.jpg|0": {
+"d": 387,
+"m": 374,
+"top_d": 2533,
+"top_m": 3422
+},
+"sewer-line-cleaning|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"sewer-line-cleaning|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 7047,
+"top_m": 9765
+},
+"sewer-line-cleaning|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"sitemap|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"sitemap|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 1856,
+"top_m": 3174
+},
+"sitemap|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"terms-of-service|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"terms-of-service|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 4882,
+"top_m": 6999
+},
+"terms-of-service|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+},
+"thank-you|assets/wsd-logo-primary.png|0": {
+"d": 84,
+"m": 54,
+"top_d": 10,
+"top_m": 11
+},
+"thank-you|assets/wsd-logo-primary.png|1": {
+"d": 116,
+"m": 72,
+"top_d": 1666,
+"top_m": 2089
+},
+"thank-you|assets/wsd-logo-primary.png|2": {
+"d": 0,
+"m": 0,
+"top_d": 0,
+"top_m": 0
+}
+}

@@ -1,0 +1,19 @@
+# Cache rules. Pages revalidate on every visit so edits show up right away;
+# images and icons are cached for a week; CSS and JS for a day because
+# their file names don't change between releases.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/assets/*
+  Cache-Control: public, max-age=604800
+
+/favicon/*
+  Cache-Control: public, max-age=604800
+
+/*.css
+  Cache-Control: public, max-age=86400
+
+/*.js
+  Cache-Control: public, max-age=86400

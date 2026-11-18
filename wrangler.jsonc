@@ -6,9 +6,12 @@
     "enabled": true
   },
   "assets": {
-    "directory": "."
+    // Serve the repo root. .assetsignore keeps repo-only files off the live site.
+    "directory": ".",
+    // /services serves services.html, and /services.html redirects to /services.
+    "html_handling": "auto-trailing-slash",
+    // Unknown URLs get the branded 404.html with a real 404 status.
+    "not_found_handling": "404-page"
   },
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+  "compatibility_flags": ["nodejs_compat"]
 }

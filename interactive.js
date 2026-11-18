@@ -5,13 +5,24 @@
 
   // --- Header scrolled state -----------------------------------------------
   const header = document.querySelector('header');
+  // Watches a 1px marker 16px down the page instead of reading scrollY on every
+  // scroll event, so scrolling never forces a layout recalculation.
   if (header) {
-    const update = () => {
-      header.style.borderBottomColor =
-        window.scrollY > 16 ? 'var(--border)' : 'transparent';
+    let scrolled = null;
+    const setState = (on) => {
+      if (on === scrolled) return;
+      scrolled = on;
+      header.style.borderBottomColor = on ? 'var(--border)' : 'transparent';
     };
-    update();
-    window.addEventListener('scroll', update, { passive: true });
+    if ('IntersectionObserver' in window) {
+      const marker = document.createElement('div');
+      marker.setAttribute('aria-hidden', 'true');
+      marker.style.cssText = 'position:absolute;top:16px;left:0;width:1px;height:1px;pointer-events:none';
+      document.body.prepend(marker);
+      new IntersectionObserver(([entry]) => setState(!entry.isIntersecting)).observe(marker);
+    } else {
+      setState(false);
+    }
   }
 
   // --- FAQ accordion -------------------------------------------------------
@@ -145,7 +156,7 @@
           mode: 'no-cors',
           body: payload
         });
-        window.location.href = 'thank-you.html';
+        window.location.href = '/thank-you';
       } catch (err) {
         restore();
         alert("Sorry — we couldn't send your request just now. " +
@@ -202,7 +213,7 @@
     drawer.innerHTML =
       '<div class="wsd-mobile-nav__panel" role="dialog" aria-label="Site navigation">' +
         '<div class="wsd-mobile-nav__head">' +
-          '<a href="index.html"><img src="assets/wsd-logo-primary.png" alt="Winnipeg Sewer and Drain"/></a>' +
+          '<a href="/"><img src="/assets/opt/wsd-logo-primary-128.webp" width="128" height="128" loading="lazy" decoding="async" alt="Winnipeg Sewer and Drain"/></a>' +
           '<button type="button" class="wsd-mobile-nav__close" aria-label="Close menu">' +
             '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" ' +
             'stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">' +

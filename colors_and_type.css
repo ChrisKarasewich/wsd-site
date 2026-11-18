@@ -3,11 +3,8 @@
    Colors + Typography foundations
    ============================================================ */
 
-/* Display: Bebas Neue (Google Fonts — only family that needs a CDN load) */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
-/* Body: Poppins (Google Fonts for standalone bundle) */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Fonts (Bebas Neue, Poppins 400-700) load from a <link> in each page's head
+   so the browser fetches them in parallel with this file. */
 
 :root {
   /* ---------- COLOR — BRAND CORE ---------- */
@@ -65,7 +62,7 @@
   /* ---------- SEMANTIC TEXT ---------- */
   --fg-1:            var(--wsd-n-700);   /* body */
   --fg-2:            var(--wsd-n-500);   /* secondary */
-  --fg-3:            var(--wsd-n-400);   /* muted */
+  --fg-3:            var(--wsd-n-500);   /* muted: #6E6F73 is 5.0:1 on white (was #8E8E8E, 3.3:1) */
   --fg-display:      var(--wsd-navy);    /* big headings */
   --fg-on-navy:      var(--wsd-white);
   --fg-link:         var(--wsd-blue);

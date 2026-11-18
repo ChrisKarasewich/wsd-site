@@ -249,7 +249,7 @@
   /* Header height + logo */
   header > .container { height: 76px !important; gap: 14px !important; }
   header > .container > a { flex-shrink: 0 !important; display: flex !important; align-items: center !important; }
-  header > .container > a > img { height: 54px !important; width: auto !important; max-width: none !important; flex-shrink: 0 !important; }
+  header > .container > a img { height: 54px !important; width: auto !important; max-width: none !important; flex-shrink: 0 !important; }
   /* "24/7 Emergency Services" → just "Emergency Services" on mobile */
   .nav-247 { display: none !important; }
   header > .container > div[style*="margin-left"] > a:first-child {
@@ -320,7 +320,7 @@
   padding: 18px 20px;
   border-bottom: 1px solid var(--border);
 }
-.wsd-mobile-nav__head img { height: 48px; }
+.wsd-mobile-nav__head img { height: 48px; width: auto; }
 .wsd-mobile-nav__close {
   background: transparent;
   border: 0;

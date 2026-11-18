@@ -1,0 +1,13 @@
+# Old and mistaken URLs, 301 to the page that replaced them.
+# One rule per line: old-path new-path 301. Exact paths first, patterns after.
+# Keep these permanently: old links keep getting clicked for years.
+
+# The three rebuilt blog posts once advertised /blog/... addresses in their
+# share tags. Those never existed, so send them to the real pages.
+/blog/flat-quotes-vs-hourly /blog-flat-quotes-vs-hourly 301
+/blog/wolseley-clay-tile /blog-wolseley-clay-tile 301
+/blog/basement-backup-first-10-minutes /blog-basement-backup-first-10-minutes 301
+
+# Any other /blog/<post> address goes to the matching blog-<post> page.
+/blog/:slug /blog-:slug 301
+/blog /recent-updates 301

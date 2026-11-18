@@ -1,0 +1,3 @@
+# Changelog
+
+2026-11-18: Launch-checklist fix release. One identical head on every page (real GTM ID everywhere, GTM deferred, CallRail async, favicon, share tags with og:url, Search Console tag). Fonts load by link instead of @import. Every image served as AVIF/WebP at its rendered size with width and height set. All pages load the same four stylesheets (fixes broken mobile layout on three blog posts and stuck FAQs on eight pages). Placeholder GTM ID and 555 phone number removed. Branded 404 page, llms.txt, sitemap lastmod, breadcrumb and page schema, skip link, main landmark, linked form labels, darker muted text for contrast. Internal links go straight to extensionless URLs. Repo-only files and old duplicate images no longer deploy.
