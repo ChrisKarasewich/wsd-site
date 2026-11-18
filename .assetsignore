@@ -1,0 +1,12 @@
+# Files that live in the repo but are never served on winnipegsd.com
+.git
+.gitignore
+.gitattributes
+.assetsignore
+wrangler.jsonc
+README.md
+CHANGELOG.md
+DEPLOYMENT-README.md
+tools/
+.DS_Store
+**/.DS_Store
