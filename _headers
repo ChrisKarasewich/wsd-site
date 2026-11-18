@@ -1,6 +1,7 @@
-# Cache rules. Pages revalidate on every visit so edits show up right away;
-# images and icons are cached for a week; CSS and JS for a day because
-# their file names don't change between releases.
+# Cache rules. Pages, CSS and JS revalidate on every visit, so an edit shows up
+# on the next page load (their file names don't change between releases, so a
+# long cache would keep serving the old version). Images and icons are cached
+# for a week.
 
 /*
   X-Content-Type-Options: nosniff
@@ -13,7 +14,7 @@
   Cache-Control: public, max-age=604800
 
 /*.css
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=0, must-revalidate
 
 /*.js
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=0, must-revalidate
